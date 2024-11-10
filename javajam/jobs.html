@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zachery Dibble &mdash; JavaJam Coffee House</title>
+  <title>Your Name &mdash; JavaJam Coffee House</title>
   <meta name="description" content="JavaJam Coffee Bar Case Study">
-  <meta name="author" content="Zachery Dibble">
-  <meta name="keywords" content="Homework, USU, Data Analytics and Information Systems">
+  <meta name="author" content="Your Name">
+  <meta name="keywords" content="Homework, Data Analytics and Information Systems">
 
   <link href="javajam.css" rel="stylesheet">
 
@@ -31,26 +31,30 @@
     <main>
       <div id="herojobs">
       </div>
-        <h2>Jobs at JavaJam</h2>
-        <p>
-          Want to work at JavaJam? Fill out the form below to start your application. 
-          All information is required.
-        </p>
-        <form method="post" action="https://webdevbasics.net/scripts/javajam8.php">
-          <label for="myName">Name: </label>
-          <input type="text" id="myName" name="myName" required>
-          <label for="myEmail">Email: </label>
-          <input type="text" id="myEmail" name="myEmail" required>
-          <label for="myStart">Start Date: </label>
-          <input type="date" id="myStart" name="myStart" required>
-          <label for="myExperience">Experience: </label>
-          <textarea name="myExperience" id="myExperience" rows="2" cols="20" required></textarea>
-          <input type="submit" id="mySubmit" value="Apply Now">
-        </form>
+      <h2>Jobs at JavaJam</h2>
+      <p>Want to work at JavaJam? Fill out the form below to
+        start your application. All information is required. </p>
+      <form method="post" action="https://webdevbasics.net/scripts/javajam8.php">
+        <label for="myName">Name: </label>
+        <input type="text" id="myName" name="myName" required>
+        <label for="myEmail">E-mail: </label>
+        <input type="email" id="myEmail" name="myEmail" required>
+        <label for="myStart">Start Date: </label>
+        <input type="date" id="myStart" name="myStart" required>
+        <label for="myExperience">Experience: </label>
+        <textarea name="myExperience" id="myExperience" rows="2" cols="20" required></textarea>
+        <input type="submit" value="Apply Now">
+      </form>
     </main>
     <footer>
       Copyright &copy; 20XX JavaJam Coffee Bar<br>
-      <a href="mailto:a02104219@usu.edu">a02104219@usu.edu</a>
+      <a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
+
+      <div>
+        <p id="dateupdate"></p>
+        <script src="js/dateupdate.js"></script>
+      </div>
+
     </footer>
   </div>
 </body>
