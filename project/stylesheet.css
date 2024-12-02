@@ -198,6 +198,18 @@ form .form-group p {
   margin-top: 10px;
 }
 
+form .radio-group {
+  display: flex;
+  flex-direction: row; /* Stack the options vertically */
+  gap: 30px; /* Add space between the radio buttons */
+}
+
+form .radio-group label {
+  display: flex;
+  align-items: center; /* Align text with the radio button */
+  gap: 8px; /* Add space between the button and text */
+  font-weight: normal;
+}
 
 main .heading-box {
   width: 100%;
@@ -260,7 +272,7 @@ main .single-box h3 {
 
 .single-box .signup-button:hover {
   background-color: #1e7bbf;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .single-box .signup-button:active {
@@ -330,6 +342,23 @@ main .scrolling-box p {
   margin-bottom: 5px;
 }
 
+.scrolling-box .button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007bff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.scrolling-box .button:hover {
+  background-color: #0056b3;
+}
+
 /* Left section with text content */
 main .content-box {
   width: 50%;
@@ -360,7 +389,7 @@ main .content-box ol {
   text-align: left;
 }
 
-/* Right section for media links */
+/* Section for media links */
 main .media-box {
   width: 45%;
   padding: 10px;
@@ -372,6 +401,24 @@ main .media-box {
   align-items: center;
   justify-content: center;
 }
+
+/* Video iframe with glowing border */
+main .media-box .video-frame {
+  width: 100%;
+  max-width: 560px; /* Optional: to limit max video width */
+  height: auto;
+  aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+  border: 2px solid transparent; /* Transparent border for glow effect */
+  box-shadow: 0 0 15px 5px rgba(34, 144, 221, 0.6); /* Light blue glow */
+  border-radius: 8px; /* Rounded corners */
+  transition: box-shadow 0.3s ease; /* Smooth effect on hover */
+}
+
+/* Add hover effect for the glow */
+main .media-box .video-frame:hover {
+  box-shadow: 0 0 20px 8px rgba(34, 144, 221, 0.8); /* Brighter glow */
+}
+
 
 /* Style for ordered list in content box */
 main .content-box ol {
@@ -447,6 +494,124 @@ main .signup-box .return-home:hover {
   color: #1e7bbf;
   text-decoration: underline;
 }
+
+/* Landing Page Styling */
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  background-color: #2290dd;
+  color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.hero-section .cta-button {
+  background-color: white;
+  color: #2290dd;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-section .cta-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Features Section */
+.features-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.features-section h2 {
+  color: #2290dd;
+}
+
+.features-section .feature {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.testimonials-section .testimonial {
+  margin-bottom: 20px;
+  font-style: italic;
+  border-left: 4px solid #2290dd;
+  padding-left: 10px;
+}
+
+.testimonials-section h2 {
+  color: #2290dd;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  background-color: #2290dd;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.cta-section .cta-button {
+  background-color: white;
+  color: #2290dd;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-section .cta-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Mission Section */
+.mission-section {
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mission-section h2 {
+  font-size: 24px;
+  color: #2290dd;
+  margin-bottom: 15px;
+}
+
+.mission-section p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* End of Landing Page Styling */
 
 /* Footer styling */
 footer {

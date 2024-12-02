@@ -12,6 +12,10 @@
   
     <link href="stylesheet.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
 </head>
 
 <body>
@@ -146,7 +150,25 @@
                     <label for="zip-code">*ZIP Code:</label>
                     <input type="text" id="zip-code" name="zip-code" required>
                 </div>
-
+                
+                <!-- Trade Selection -->
+                <div class="form-group">
+                    <label for="trade-types">*Primary Trade</label>
+                    <select id="trade-types" name="trade-types" required>
+                        <option value="">-- Select a Trade --</option>
+                        <option value="electrician">Electrician</option>
+                        <option value="plumber">Plumber</option>
+                        <option value="welder">Welder</option>
+                        <option value="carpenter">Carpenter</option>
+                        <option value="hvac">HVAC Technician</option>
+                        <option value="mason">Mason</option>
+                        <option value="machinist">Machinist</option>
+                        <option value="auto-technician">Automotive Technician</option>
+                        <option value="roofer">Roofer</option>
+                        <option value="construction-worker">Construction Worker</option>
+                    </select>
+                </div>                
+                               
                 <!-- Submit Button -->
                 <div class="form-group">
                     <button type="submit">Submit</button>
