@@ -1,2 +1,0 @@
-REFERENCE:
-	Web Development and Design Foundations with HTML5 - Page: 170 (Topic: Web Project)
