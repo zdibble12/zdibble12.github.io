@@ -70,6 +70,13 @@ nav ul li {
   height: auto;
   border-radius: 4px;
   margin-left: 175px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.1);
+  box-shadow; 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
 }
 
 /* Navigation links styling */
