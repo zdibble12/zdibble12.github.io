@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolboxify &mdash; Get Involved</title>
+    <meta name="description" content="Get Involved with Toolboxify">
+    <meta name="author" content="BocceTech LLC">
+    <meta name="keywords" content="Tools, Asset Management, Tool Management, Involvement, Suggestions">
+  
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" title="Go to Home Page">
+                <img src="images/toolboxify_logo_trim.jpg" alt="Toolboxify Logo" class="header-logo">
+            </a>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="information.html">Information</a></li>
+                    <li><a href="try.html">Try It Out</a></li>
+                    <li><a href="involved.html">Get Involved</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="inquiries.html">Help</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="wrapper">
+        <main>
+            <div class="heading-box">
+                <h1>Support Ticket</h1>
+            </div>
+            <div class="form-box">
+                <h2>Please fill out the help ticket below.</h2>
+                <h4>* Required Fields</h4>
+                <form action="/submit-form" method="post">
+                    <!-- First name field -->
+                    <div class="form-group">
+                        <label for="name">*First Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your first name" required>
+                    </div>
+            
+                    <!-- Last name field -->
+                    <div class="form-group">
+                        <label for="last-name">*Last Name:</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+                    </div>
+            
+                    <!-- Email field -->
+                    <div class="form-group">
+                        <label for="email">*Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+            
+                    <!-- Category -->
+                    <div class="form-group">
+                        <label for="category">*Category:</label>
+                        <select id="category" name="category" required>
+                            <option value="">-- Select Category --</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="billing">Billing</option>
+                            <option value="account">Account Issues</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+            
+                    <!-- Ticket subject -->
+                    <div class="form-group">
+                        <label for="subject">*Subject:</label>
+                        <input type="text" id="subject" name="subject" placeholder="Enter a brief subject" required>
+                    </div>
+            
+                    <!-- Priority level -->
+                    <div class="form-group">
+                        <label for="priority">*Priority:</label>
+                        <select id="priority" name="priority" required>
+                            <option value="">-- Select Priority --</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </div>
+            
+                    <!-- Issue Description -->
+                    <div class="form-group">
+                        <label for="description">*Description:</label>
+                        <textarea id="description" name="description" rows="5" placeholder="Describe your issue in detail..." required></textarea>
+                    </div>
+            
+                    <!-- Attachments -->
+                    <div class="form-group">
+                        <label for="attachment">Attachment (optional):</label>
+                        <input type="file" id="attachment" name="attachment" accept="image/*,application/pdf">
+                    </div>
+            
+                    <!-- Phone number -->
+                    <div class="form-group">
+                        <label for="phone">Phone Number (optional):</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                    </div>
+            
+                    <!-- Preferred contact method -->
+                    <div class="form-group">
+                        <label>*Preferred Contact Method:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="contact-method" value="email" checked> Email</label>
+                            <label><input type="radio" name="contact-method" value="phone"> Phone</label>
+                        </div>
+                    </div>                    
+            
+                    <!-- Disclaimer -->
+                    <div class="form-group">
+                        <p style="font-size: 0.9rem; color: #555; margin-top: 5px;">
+                            By selecting "Phone" as your preferred contact method, you agree to allow us to contact you via the phone number provided for matters related to this ticket.
+                        </p>
+                    </div>
+            
+                    <!-- Submit button -->
+                    <div class="form-group">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>            
+        </main>
+    </div>
+    <footer>
+        <div class="social-links">
+            <div class="social-item">
+                <a href="https://www.instagram.com/toolboxify.main/" target="blank">
+                    <img src="images/instagram_logo.jpg" alt="Instagram Logo" class="social-icon">
+                </a><br>
+                <a href="https://www.instagram.com/toolboxify.main/" target="blank">Instagram</a>
+            </div>
+            <div class="social-item">
+                <a href="https://www.facebook.com/toolboxify.main/" target="blank">
+                    <img src="images/facebook_logo.png" alt="Facebook Logo" class="social-icon">
+                </a><br>
+                <a href="https://www.facebook.com/toolboxify.main/" target="blank">Facebook</a>
+            </div>
+            <div class="social-item">
+                <a href="https://www.youtube.com/@ToolboxifyApp" target="blank">
+                    <img src="images/youtube_logo.jpg" alt="YouTube Logo" class="social-icon">
+                </a><br>
+                <a href="https://www.youtube.com/@ToolboxifyApp" target="blank">YouTube</a>
+            </div>
+        </div>
+        <p class="footer-text"><a href="mailto:toolboxify.main@gmail.com">Email Us</a><br><br>
+            Copyright &copy; 2024 BocceTech, LLC
+        </p>
+    </footer>
+    <script src="scrollscript.js"></script>
+</body>
+
+
+</html>
