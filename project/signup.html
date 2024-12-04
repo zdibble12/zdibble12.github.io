@@ -5,88 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toolboxify &mdash; Home</title>
-    <meta name="description" content="Toolboxify Sign Up Form">
-    <meta name="author" content="BocceTech LLC">
-    <meta name="keywords" content="Tools, Asset Management, Tool Management, Sign Up, Try, Free">
-  
+    <title>Toolboxify &mdash; Registration</title>
     <link href="stylesheet.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
 </head>
 
 <body>
     <main id="wrapper">
         <div class="signup-box">
-            <a href="index.html" class="return-home">
-                &#8592; Return to Home
-            </a>
             <h2>Registration Form</h2>
-            <form action="/submit-form" method="post">
-                <!-- Email -->
+            <form id="registration-form">
                 <div class="form-group">
                     <label for="email">*Email:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-
-                <!-- Confirm Email -->
-                <div class="form-group">
-                    <label for="confirm-email">*Confirm Email:</label>
-                    <input type="email" id="confirm-email" name="confirm-email" required>
-                </div>
-
-                <!-- Username -->
                 <div class="form-group">
                     <label for="username">*Username:</label>
                     <input type="text" id="username" name="username" required>
                 </div>
-
-                <!-- Password -->
                 <div class="form-group">
                     <label for="password">*Password:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-
-                <!-- First Name -->
                 <div class="form-group">
                     <label for="first-name">*First Name:</label>
-                    <input type="text" id="first-name" name="first-name" required>
+                    <input type="text" id="first-name" name="firstName" required>
                 </div>
-
-                <!-- Last Name -->
                 <div class="form-group">
                     <label for="last-name">*Last Name:</label>
-                    <input type="text" id="last-name" name="last-name" required>
+                    <input type="text" id="last-name" name="lastName" required>
                 </div>
-
-                <!-- Phone Number -->
                 <div class="form-group">
                     <label for="phone">*Phone Number:</label>
                     <input type="tel" id="phone" name="phone" required>
                 </div>
-
-                <!-- Street Address 1 -->
                 <div class="form-group">
                     <label for="address1">*Street Address 1:</label>
                     <input type="text" id="address1" name="address1" required>
                 </div>
-
-                <!-- Street Address 2 -->
                 <div class="form-group">
                     <label for="address2">Street Address 2 (Optional):</label>
                     <input type="text" id="address2" name="address2">
-                </div>
-
-                <!-- City -->
+                </div>                
                 <div class="form-group">
                     <label for="city">*City:</label>
                     <input type="text" id="city" name="city" required>
                 </div>
-
-                <!-- State -->
                 <div class="form-group">
                     <label for="state">*State:</label>
                     <select id="state" name="state" required>
@@ -144,17 +108,13 @@
                         <option value="Not Listed">Not Listed</option>
                     </select>
                 </div>
-
-                <!-- ZIP Code -->
                 <div class="form-group">
                     <label for="zip-code">*ZIP Code:</label>
-                    <input type="text" id="zip-code" name="zip-code" required>
+                    <input type="text" id="zip-code" name="zipCode" required>
                 </div>
-                
-                <!-- Trade Selection -->
                 <div class="form-group">
                     <label for="trade-types">*Primary Trade</label>
-                    <select id="trade-types" name="trade-types" required>
+                    <select id="trade-types" name="tradeType" required>
                         <option value="">-- Select a Trade --</option>
                         <option value="electrician">Electrician</option>
                         <option value="plumber">Plumber</option>
@@ -167,14 +127,62 @@
                         <option value="roofer">Roofer</option>
                         <option value="construction-worker">Construction Worker</option>
                     </select>
-                </div>                
-                               
-                <!-- Submit Button -->
+                </div>
                 <div class="form-group">
-                    <button type="submit">Submit</button>
+                    <button type="button" id="submit-button">Submit</button>
                 </div>
             </form>
         </div>
     </main>
+
+    <script>
+        document.getElementById('submit-button').addEventListener('click', async () => {
+            const form = document.getElementById('registration-form');
+            const formData = new FormData(form);
+
+            // Build a JSON object from formData
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Ensure Street Address 2 is included, even if optional
+            if (!data['address2']) {
+                data['address2'] = ''; // Default to an empty string if not provided
+            }
+
+            // Prepare the payload in the required format
+            const payload = {
+                body: JSON.stringify(data)
+            };
+
+            console.log('Data to be sent:', payload); // Debugging log
+
+            try {
+                const response = await fetch('https://bhjbj7u8j5.execute-api.us-west-1.amazonaws.com/dev', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                const result = await response.json();
+                console.log('API Response:', result); // Debugging log
+
+                if (response.ok) {
+                    alert('Registration successful!');
+                    // Redirect to the submitted.html page
+                    window.location.href = 'submitted.html';
+                } else {
+                    alert(`Error: ${result.error || 'Unknown error'}`);
+                }
+            } catch (error) {
+                alert('An error occurred while submitting the form.');
+                console.error('Submission error:', error);
+            }
+        });
+    </script>
 </body>
+
 </html>

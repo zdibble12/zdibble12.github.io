@@ -48,25 +48,25 @@
             <div class="form-box">
                 <h2>Please fill out the help ticket below.</h2>
                 <h4>* Required Fields</h4>
-                <form action="/submit-form" method="post">
-                    <!-- First name field -->
+                <form id="support-ticket-form">
+                    <!-- First Name -->
                     <div class="form-group">
                         <label for="name">*First Name:</label>
                         <input type="text" id="name" name="name" placeholder="Enter your first name" required>
                     </div>
-            
-                    <!-- Last name field -->
+                
+                    <!-- Last Name -->
                     <div class="form-group">
                         <label for="last-name">*Last Name:</label>
                         <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
                     </div>
-            
-                    <!-- Email field -->
+                
+                    <!-- Email -->
                     <div class="form-group">
                         <label for="email">*Email Address:</label>
                         <input type="email" id="email" name="email" placeholder="Enter your email" required>
                     </div>
-            
+                
                     <!-- Category -->
                     <div class="form-group">
                         <label for="category">*Category:</label>
@@ -78,14 +78,14 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
-            
-                    <!-- Ticket subject -->
+                
+                    <!-- Subject -->
                     <div class="form-group">
                         <label for="subject">*Subject:</label>
                         <input type="text" id="subject" name="subject" placeholder="Enter a brief subject" required>
                     </div>
-            
-                    <!-- Priority level -->
+                
+                    <!-- Priority -->
                     <div class="form-group">
                         <label for="priority">*Priority:</label>
                         <select id="priority" name="priority" required>
@@ -96,47 +96,40 @@
                             <option value="critical">Critical</option>
                         </select>
                     </div>
-            
-                    <!-- Issue Description -->
+                
+                    <!-- Description -->
                     <div class="form-group">
                         <label for="description">*Description:</label>
                         <textarea id="description" name="description" rows="5" placeholder="Describe your issue in detail..." required></textarea>
                     </div>
-            
-                    <!-- Attachments -->
+                
+                    <!-- Attachment -->
                     <div class="form-group">
                         <label for="attachment">Attachment (optional):</label>
                         <input type="file" id="attachment" name="attachment" accept="image/*,application/pdf">
                     </div>
-            
-                    <!-- Phone number -->
+                
+                    <!-- Phone -->
                     <div class="form-group">
                         <label for="phone">Phone Number (optional):</label>
                         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                     </div>
-            
-                    <!-- Preferred contact method -->
+                
+                    <!-- Preferred Contact Method -->
                     <div class="form-group">
                         <label>*Preferred Contact Method:</label>
                         <div class="radio-group">
                             <label><input type="radio" name="contact-method" value="email" checked> Email</label>
                             <label><input type="radio" name="contact-method" value="phone"> Phone</label>
                         </div>
-                    </div>                    
-            
-                    <!-- Disclaimer -->
-                    <div class="form-group">
-                        <p style="font-size: 0.9rem; color: #555; margin-top: 5px;">
-                            By selecting "Phone" as your preferred contact method, you agree to allow us to contact you via the phone number provided for matters related to this ticket.
-                        </p>
                     </div>
-            
-                    <!-- Submit button -->
+                
+                    <!-- Submit -->
                     <div class="form-group">
-                        <button type="submit">Submit</button>
+                        <button type="button" id="submit-button">Submit</button>
                     </div>
-                </form>
-            </div>            
+                </form>                               
+            </div>                        
         </main>
     </div>
     <footer>
@@ -166,6 +159,54 @@
     </footer>
     <script src="scrollscript.js"></script>
     <script src="hamburger.js"></script>
+    <script>
+        document.getElementById('submit-button').addEventListener('click', async () => {
+            const form = document.getElementById('support-ticket-form');
+            const formData = new FormData(form);
+
+            // Build a JSON object from formData
+            const data = {};
+            formData.forEach((value, key) => {
+                if (key === 'attachment' && value instanceof File) {
+                    // Skip file attachments or handle them as needed
+                    return;
+                }
+                data[key] = value;
+            });
+
+            // Prepare the payload
+            const payload = {
+                body: JSON.stringify(data),
+            };
+
+            console.log('Payload to be sent:', payload); // Debugging log
+
+            try {
+                const response = await fetch('https://mb7w09659l.execute-api.us-west-1.amazonaws.com/dev', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                const result = await response.json();
+                console.log('API Response:', result); // Debugging log
+
+                if (response.ok) {
+                    alert('Support ticket submitted successfully!');
+                    // Redirect to the submitted.html page
+                    window.location.href = 'submitted.html';
+                } else {
+                    alert(`Error: ${result.error || 'Unknown error occurred.'}`);
+                }
+            } catch (error) {
+                alert('An error occurred while submitting the form.');
+                console.error('Submission error:', error);
+            }
+        });
+    </script>
+    
 </body>
 
 
